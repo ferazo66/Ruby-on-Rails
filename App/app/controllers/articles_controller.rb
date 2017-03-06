@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, except: [:index,:show]
+  before_action :set_article, except: [:index,:new,:create]
   def index
     @article=Article.all
   end
   def show
-    @article=Article.find(params[:id])
+    @article.update_visits_count
   end
   def new
     @article=Article.new
@@ -17,10 +19,8 @@ class ArticlesController < ApplicationController
    end
   end
   def edit
-    @article=Article.find(params[:id])
   end
   def update
-    @article=Article.find(params[:id])
     if@article.update(article_params)
       redirect_to @article
     else
@@ -28,12 +28,14 @@ class ArticlesController < ApplicationController
     end
   end
   def destroy
-    @article=Article.find(params[:id])
     @article.destroy
     redirect_to articles_index_path
   end
   private
   def article_params
     params.require(:article).permit(:title,:body)
+  end
+  def set_article
+    @article=Article.find(params[:id])
   end
 end
