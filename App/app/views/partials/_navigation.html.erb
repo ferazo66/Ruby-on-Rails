@@ -22,8 +22,12 @@
           </li>
           <%else%>
           <li  class="col-md">
-            <%= link_to "Iniciar sesión", new_user_session_path%>
+            <%= link_to "crear Cuenta ",new_user_registration_path%>
           </li>
+          <li  class="col-md">
+            <%= link_to "Iniciar sesión", new_user_session_path  %>
+          </li>
+
       <%end%>
     </ul>
   </nav>
