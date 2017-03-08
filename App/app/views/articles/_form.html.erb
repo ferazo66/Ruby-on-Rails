@@ -16,6 +16,14 @@
       <%= f.text_area :body, placeholder:"Escribe aqui tu articulo",style:"height:250px" ,class:"form-control"%>
     </div>
     <div class="field">
+      <label>Categorias</label>
+      <% @categories.each do |category| %>
+          <div class="field">
+            <%= check_box_tag "categories[]" ,category.id %> <%= category.name %>
+          </div>
+      <%end%>
+    </div>
+    <div class="field">
       <%=f.submit"Guardar Cambios",class:"btn" %>
     </div>
 <%end%>

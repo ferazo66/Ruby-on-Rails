@@ -2,20 +2,13 @@
   <nav class="be-red white large-padding">
     <ul class="no-list row center-xs middle-xs" >
       <li class="col-md">
-        <h1 class="no-margin" id="logo">Enrike</h1>
+        <h1 class="no-margin" id="logo"> <%=link_to "Enrike", root_path %></h1>
       </li>
-      <li class="col-md">
-        <%=link_to "Inicio", root_path %>
-      </li>
-      <li class="col-md">
-        Diseño
-      </li>
-      <li class="col-md">
-        Programacion
-      </li>
-      <li class="col-md">
-        Tecnologia
-      </li>
+        <% @categories.each do |category| %>
+          <li class="col-md">
+            <%= link_to category.name, category %>
+          </li>
+        <% end %>
       <% if user_signed_in?%>
           <li  class="col-md">
             <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
