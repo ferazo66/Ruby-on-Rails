@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   before_save :set_visits_count
 
   has_attached_file :cover, style:{medium:"1280x720",thumb:"400x200"}, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
   def update_visits_count
     self.save if self.visits_count.nil?

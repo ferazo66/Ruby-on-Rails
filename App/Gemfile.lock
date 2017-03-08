@@ -40,6 +40,8 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.4)
     bcrypt (3.1.11-x86-mingw32)
+    bootstrap-sass (2.3.2.2)
+      sass (~> 3.2)
     builder (3.2.3)
     climate_control (0.1.0)
     cocaine (0.5.8)
@@ -90,7 +92,7 @@ GEM
     nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
-    paperclip (5.1.0)
+    paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       cocaine (~> 0.5.5)
@@ -168,13 +170,14 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bootstrap-sass (~> 2.3.2)
   byebug
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
-  paperclip
+  paperclip (~> 5.0.0)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   sass-rails (~> 5.0)
