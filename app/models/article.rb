@@ -15,6 +15,9 @@ class Article < ApplicationRecord
   has_attached_file :cover, style:{medium:"1280x720",thumb:"400x200"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
+  #scope para parametros / pueden ser encadenables
+  #scope :publicados, ->{where(state: "published")}
+
   def categories=(value)
     @categories=value
   end
@@ -34,7 +37,6 @@ class Article < ApplicationRecord
       transitions :form=> :published, :to=> :in_draft
     end
   end
-
 
   private
   def set_visits_count

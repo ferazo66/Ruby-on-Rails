@@ -34,6 +34,7 @@ gem 'jquery-turbolinks'
 gem 'paperclip', '~> 5.0.0'
 gem 'bootstrap-sass', '~> 2.3.2'
 gem 'aasm'
+gem 'will_paginate'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
