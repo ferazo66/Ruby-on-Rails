@@ -13,7 +13,9 @@
       Portada <%= f.file_field :cover %>
     </div>
     <div class="field">
-      <%= f.text_area :body, placeholder:"Escribe aqui tu articulo",style:"height:250px" ,class:"form-control"%>
+      <%=# f.text_area :body, placeholder:"Escribe aqui tu articulo",style:"display:none" ,class:"form-control"%>
+    </div>
+    <div id="epiceditor", style="height: 250px;">
     </div>
     <div class="field">
       <label>Categorias</label>
@@ -27,3 +29,6 @@
       <%=f.submit"Guardar Cambios",class:"btn" %>
     </div>
 <%end%>
+<!--<script>-->
+//  var editor=new EpicEditor().load();
+<!--</script>-->

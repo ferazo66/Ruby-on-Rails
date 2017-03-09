@@ -1,7 +1,17 @@
-<% @article.each do |article|%>
-    <h1><%= link_to article.title, article%></h1>
-    <div>
-      <%= article.body %>
-    </div>
-<% end%>
+<h1>Articulos</h1>
+<div class="row">
+  <% @article.each do |article|%>
+      <div class="col-md-4">
+        <div class="box relative article-height">
+          <div class="absolute article-height background-cover" style="background:url(<%= article.cover.url(:thumb)%>);top:0px;left:0px;width:100%;">
+            <h2><%= link_to article.title, article%> </h2>
+            <p>
+              <%= truncate(article.body,length:20) %>
+            </p>
+          </div>
+        </div>
+      </div>
+  <%end%>
+</div>
+
 <%= will_paginate @article %>

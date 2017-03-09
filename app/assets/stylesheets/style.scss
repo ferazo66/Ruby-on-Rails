@@ -39,8 +39,21 @@ a:visited{
 .file,.top-space,.actions{
   margin-inside: 1em;
 }
+.background-cover{
+  background-position: center;
+  background-size: cover;
+}
 .text-left{
   text-align: left;
+}
+.article-height{
+  height: 300px;
+}
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
 }
 .form-control{
   border: none;
