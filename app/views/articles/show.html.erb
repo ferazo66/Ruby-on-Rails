@@ -1,0 +1,28 @@
+<h1><%= @article.title %></h1>
+  <%= @article.body%>
+</div>
+  <% unless @article.user.nil? %>
+    <p>
+      Escrito por: <%= @article.user.email %>
+    </p>
+  <%end%>
+<div class="field">
+  <%= image_tag @article.cover.url() %>
+</div>
+<p>Visitas: <%= @article.visits_count%></p>
+
+<div>
+  <%= link_to "Editar", edit_article_path(@article)%>
+</div>
+<div class="field">
+  <h4>Comentarios</h4>
+  <%= render "comments/form" %>
+  <ul>
+    <% @article.comments.each do |comments|%>
+    <li>
+      <%=comments.body%> - <%= comments.user.email  %>
+    </li>
+
+    <% end %>
+  </ul>
+</div>
