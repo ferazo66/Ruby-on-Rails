@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+
+  # include AASM
+
   belongs_to :user
   has_many :comments
   has_many :has_categories
@@ -19,6 +22,17 @@ class Article < ApplicationRecord
     self.save if self.visits_count.nil?
     self.update(visits_count: self.visits_count + 1)
   end
+  # aasm colunm:"state" do
+  #   state :draft,initial: true
+  #   state :published
+  #   event :publish do
+  #     transitions form: :in_draft, to: :published
+  #   end
+  #   event :unpublish do
+  #     transitions form: :published, to: :in_draft
+  #   end
+  #
+  # end
   private
   def set_visits_count
     self.visits_count ||= 0

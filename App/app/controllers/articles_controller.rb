@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
   before_action :set_article, except: [:index,:new,:create]
+  before_action :authenticate_editor!,only: [:new,:create,:edit]
+  before_action :authenticate_admin!,only: [:destroy]
   def index
     @article=Article.all
   end
@@ -32,7 +34,7 @@ class ArticlesController < ApplicationController
   end
   def destroy
     @article.destroy
-    redirect_to articles_index_path
+    redirect_to root_path
   end
   private
   def article_params
